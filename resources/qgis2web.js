@@ -62,23 +62,14 @@ var map = new ol.Map({
     overlays: [overlayPopup],
     layers: layersList,
     view: new ol.View({
-         maxZoom: 28, minZoom: 1
+         maxZoom: 28, minZoom: 1, projection: 'EPSG:4326'
     })
 });
 
 var layerSwitcher = new ol.control.LayerSwitcher({tipLabel: "Layers"});
 map.addControl(layerSwitcher);
 
-    var searchLayer = new ol.SearchLayer({
-      layer: lyr_PontosTuristicos6,
-      colName: 'NOME',
-      zoom: 10,
-      collapsed: true,
-      map: map
-    });
-
-    map.addControl(searchLayer);
-map.getView().fit([-5689574.372921, -3448400.686780, -5623920.045655, -3398630.678144], map.getSize());
+map.getView().fit([-51.096274, -29.508063, -50.534576, -29.242400], map.getSize());
 
 var NO_POPUP = 0
 var ALL_FIELDS = 1
